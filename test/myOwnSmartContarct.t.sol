@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import "forge-std/Test.sol";
 import "../src/myOwnSmartContarct.sol";
 import "../src/MockERC20.sol";
-import "../src/MockNFT.sol"; // Assurez-vous d'avoir créé ce fichier (étape 1)
+import "../src/MockNFT.sol"; 
 
 contract MemberVestingTest is Test {
     MemberVesting public vestingContract;
@@ -15,14 +15,14 @@ contract MemberVestingTest is Test {
     address public alice;
     address public bob;
 
-    uint256 public constant TOKEN_ID = 1; // On va tester avec le NFT #1
+    uint256 public constant TOKEN_ID = 1; 
     uint256 public constant TOTAL_REWARD = 1000 ether;
     uint256 public constant DURATION = 100 days;
 
     function setUp() public {
         owner = address(this);
-        alice = makeAddr("alice"); // Crée une fausse adresse pour Alice
-        bob = makeAddr("bob");     // Crée une fausse adresse pour Bob
+        alice = makeAddr("alice"); // Géneration d'adresse  pour Alice (first owner)
+        bob = makeAddr("bob");     // Génération d'adresse pour l'acheteur bob 
 
         // 1. Déploiement des contrats
         rewardToken = new MockERC20();
