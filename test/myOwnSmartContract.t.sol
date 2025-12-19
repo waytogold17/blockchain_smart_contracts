@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import "../src/myOwnSmartContarct.sol";
+import "../src/myOwnSmartContract.sol";
 import "../src/MockERC20.sol";
 import "../src/MockNFT.sol"; 
 
