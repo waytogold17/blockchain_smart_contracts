@@ -39,8 +39,9 @@ contract MemberVestingTest is Test {
 
     // Test 1 : Vérifier que le vesting est bien créé
     function test_AddVesting() public {
+        
         vestingContract.addVestingForNFT(TOKEN_ID, TOTAL_REWARD, DURATION);
-
+        // Ajo
         // Vérifie que le contrat a bien pris les fonds
         assertEq(rewardToken.balanceOf(address(vestingContract)), TOTAL_REWARD);
         
