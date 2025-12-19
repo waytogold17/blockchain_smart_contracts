@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 contract MemberVesting is Ownable, ReentrancyGuard {
 
     // --- INTERFACES ---
-    // Le jeton qu'on distribue (ex: USDC, ou ton Token perso)
+    // Le jeton qu'on distribue (erc20)
     IERC20 public immutable rewardToken;
     // La collection NFT qui sert de "Clé" d'accès
     IERC721 public immutable membershipNft;
@@ -68,8 +68,7 @@ contract MemberVesting is Ownable, ReentrancyGuard {
      * Accessible UNIQUEMENT si tu possèdes le NFT correspondant.
      */
     function claim(uint256 _tokenId) external nonReentrant {
-        // 1. INTERACTION ERC-721 : Vérification du propriétaire
-        // On demande au contrat NFT : "Qui possède l'ID X ?"
+        // 1. INTERACTION ERC-721 : Vérification du propriétaire ||  On demande au contrat NFT : "Qui possède l'ID X ?"
         address nftOwner = membershipNft.ownerOf(_tokenId);
         require(msg.sender == nftOwner, "Tu ne possedes pas ce NFT !");
 
